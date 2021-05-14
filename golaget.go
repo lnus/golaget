@@ -27,7 +27,7 @@ type OpeningHour struct {
 	Reason   string `json:"reason"`
 }
 
-// Struct for settings keys for every request to the API
+// HeaderRoundTripper holds settings for the RoundTrip middleware
 type HeaderRoundTripper struct {
 	APIKey  string
 	Proxy   http.RoundTripper
@@ -46,9 +46,6 @@ func (hrt HeaderRoundTripper) RoundTrip(req *http.Request) (res *http.Response, 
 
 	res, err = hrt.Proxy.RoundTrip(req)
 	if err != nil {
-		if hrt.Verbose {
-			log.Fatalf("Error %v", err)
-		}
 		return
 	}
 

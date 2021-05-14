@@ -4,7 +4,7 @@ import (
 	"fmt"
 )
 
-// Agent is the intial reply from GetAgents
+// Agent is the initial reply from GetAgents
 type Agent []AgentElement
 
 // AgentElement contains all of the information gotten by the API

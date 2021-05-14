@@ -7,15 +7,19 @@ import (
 	"time"
 )
 
+// SystemGoLaget is what holds http.Client
+// Might store more data in the future
 type SystemGoLaget struct {
 	Client *http.Client
 }
 
+// Position holds the stores lat and lon
 type Position struct {
 	Latitude  float64 `json:"latitude"`
 	Longitude float64 `json:"longitude"`
 }
 
+// OpeningHour holds the stores open hours
 type OpeningHour struct {
 	Date     string `json:"date"`
 	OpenFrom string `json:"openFrom"`

@@ -10,7 +10,7 @@ import (
 func TestStoreGet(t *testing.T) {
 	godotenv.Load()
 	key := os.Getenv("PRIMARY_KEY")
-	i, err := New(key, false)
+	i, err := New(key, true)
 	if err != nil {
 		t.Log(err)
 		t.Fail()
@@ -26,7 +26,7 @@ func TestStoreGet(t *testing.T) {
 func TestStoreGetById(t *testing.T) {
 	godotenv.Load()
 	key := os.Getenv("PRIMARY_KEY")
-	i, err := New(key, false)
+	i, err := New(key, true)
 	if err != nil {
 		t.Log(err)
 		t.Fail()

@@ -10,7 +10,7 @@ import (
 func TestAgentGet(t *testing.T) {
 	godotenv.Load()
 	key := os.Getenv("PRIMARY_KEY")
-	i, err := New(key, false)
+	i, err := New(key, true)
 	if err != nil {
 		t.Log(err)
 		t.Fail()
@@ -26,7 +26,7 @@ func TestAgentGet(t *testing.T) {
 func TestAgentGetById(t *testing.T) {
 	godotenv.Load()
 	key := os.Getenv("PRIMARY_KEY")
-	i, err := New(key, false)
+	i, err := New(key, true)
 	if err != nil {
 		t.Log(err)
 		t.Fail()

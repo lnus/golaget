@@ -4,8 +4,10 @@ import (
 	"fmt"
 )
 
+// Agent is the intial reply from GetAgents
 type Agent []AgentElement
 
+// AgentElement contains all of the information gotten by the API
 type AgentElement struct {
 	AgentID                 string                  `json:"agentId"`
 	Name                    string                  `json:"name"`
@@ -28,19 +30,20 @@ type AgentElement struct {
 	Position                *Position               `json:"position"`
 }
 
+// AgentDeliverySchedule stores the dates the store does delivery
 type AgentDeliverySchedule struct {
 	DeliveryDate  string `json:"deliveryDate"`
 	OrderStopDate string `json:"orderStopDate"`
 }
 
+// AgentPickupHour stores the dates that the store performs pickup
 type AgentPickupHour struct {
 	Date       string  `json:"date"`
 	PickupFrom *string `json:"pickupFrom"`
 	PickupTo   *string `json:"pickupTo"`
 }
 
-// AgentGet
-// Gets all agents
+// AgentGet gets all agents
 func (s SystemGoLaget) AgentGet() (response *Agent, err error) {
 	url := "https://api-extern.systembolaget.se/site/V2/Agent"
 	response = new(Agent)
@@ -48,8 +51,7 @@ func (s SystemGoLaget) AgentGet() (response *Agent, err error) {
 	return
 }
 
-// AgentGetById
-// Gets a specific agent by id
+// AgentGetById gets a specific AgentElement by id
 func (s SystemGoLaget) AgentGetById(id string) (response *AgentElement, err error) {
 	url := fmt.Sprintf("https://api-extern.systembolaget.se/site/V2/Agent/%v", id)
 	response = new(AgentElement)

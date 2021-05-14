@@ -3,3 +3,6 @@
 
 # Ignore my dummy cmd folder
 cmd/
+
+# Ignore test coverage file
+*.out

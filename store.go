@@ -4,8 +4,10 @@ import (
 	"fmt"
 )
 
+// Store is a list of all StoreElements gotten by StoreGet
 type Store []StoreElement
 
+// StoreElement is gotten by StoreGetById & StoreGet (in a slice)
 type StoreElement struct {
 	SiteID                     string        `json:"siteId"`
 	Alias                      *string       `json:"alias"`
@@ -28,8 +30,7 @@ type StoreElement struct {
 	SearchArea                 *string       `json:"searchArea"`
 }
 
-// StoreGet
-// Gets all stores
+// StoreGet gets slice of information from all stores
 func (s SystemGoLaget) StoreGet() (response *Store, err error) {
 	url := "https://api-extern.systembolaget.se/site/V2/Store"
 	response = new(Store)
@@ -37,8 +38,7 @@ func (s SystemGoLaget) StoreGet() (response *Store, err error) {
 	return
 }
 
-// StoreGetById
-// Gets a specific store by id
+// StoreGetById gets information about a specific store by id
 func (s SystemGoLaget) StoreGetById(id string) (response *StoreElement, err error) {
 	url := fmt.Sprintf("https://api-extern.systembolaget.se/site/V2/Store/%v", id)
 	response = new(StoreElement)

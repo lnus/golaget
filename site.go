@@ -2,11 +2,13 @@ package golaget
 
 import "fmt"
 
+// Search is the initial reply from the API endpoint
 type Search struct {
 	SearchModel               []SearchModel `json:"siteViewModel"`
 	GooglePredictionViewModel []interface{} `json:"googlePredictionViewModel"`
 }
 
+// SearchModel contains the actual data from the API endpoint
 type SearchModel struct {
 	SiteID                string        `json:"siteId"`
 	Alias                 *string       `json:"alias"`
@@ -24,8 +26,7 @@ type SearchModel struct {
 	Position              Position      `json:"position"`
 }
 
-// SiteSearch
-// Searches for sites
+// SiteSearch searches all of the sites with a query
 func (s SystemGoLaget) SiteSearch(query string) (response *[]SearchModel, err error) {
 	url := fmt.Sprintf("https://api-extern.systembolaget.se/site/V2/Search/Site/?q=%v", query)
 	search := new(Search)

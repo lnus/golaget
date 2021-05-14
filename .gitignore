@@ -2,4 +2,4 @@
 .env
 
 # Ignore my dummy cmd folder
-cmd
+cmd/

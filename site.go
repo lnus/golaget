@@ -26,11 +26,11 @@ type SearchModel struct {
 
 // SiteSearch
 // Searches for sites
-func (s SystemGoLaget) SiteSearch(query string) (response []SearchModel, err error) {
-	url := fmt.Sprintf("https://api-extern.systembolaget.se/site/V2/Search/Site/%v", query)
+func (s SystemGoLaget) SiteSearch(query string) (response *[]SearchModel, err error) {
+	url := fmt.Sprintf("https://api-extern.systembolaget.se/site/V2/Search/Site/?q=%v", query)
 	search := new(Search)
 	s.JsonDecode(url, search)
-	response = search.SearchModel
+	response = &search.SearchModel
 	return
 }
 

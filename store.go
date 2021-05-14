@@ -1,4 +1,4 @@
-package systemgolaget
+package golaget
 
 import (
 	"fmt"

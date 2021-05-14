@@ -1,4 +1,4 @@
-module github.com/lnus/systemgolaget
+module github.com/lnus/golaget
 
 go 1.16
 
